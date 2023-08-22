@@ -3,13 +3,17 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
 import UnoCSS from 'unocss/vite'
-import { presetAttributify, presetUno } from 'unocss';
+import { presetAttributify, presetUno, presetIcons } from 'unocss';
 
 export default defineConfig({
   plugins: [
     react(),
     UnoCSS({
-      presets: [presetAttributify(), presetUno()], // Presets
+      presets: [
+        presetAttributify(),
+        presetUno(),
+        presetIcons()
+      ],
     }),
   ],
   resolve: {
