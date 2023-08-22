@@ -5,8 +5,8 @@ import {
 function Home() {
   return (
     <div>
-      <h2>H</h2>
-			<Link to="about">Test</Link>
+      <h2>Trang</h2>
+      <Link to="about">Test</Link>
     </div>
   );
 }
