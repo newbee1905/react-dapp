@@ -7,7 +7,7 @@ function Layout() {
 
 	return (
 		<>
-			<div position="fixed" className="position-fixed flex h-screen w-screen">
+			<div position="fixed" className="position-fixed flex h-screen w-screen -z-50">
 				{navigation.state !== 'idle' && <Loading />}
 			</div>
 			<Outlet />
