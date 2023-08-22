@@ -5,7 +5,7 @@ import {
 function Home() {
   return (
     <div>
-      <h2>H</h2>
+      <h1>H</h1>
 			<Link to="about">Test</Link>
     </div>
   );
