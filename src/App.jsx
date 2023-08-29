@@ -4,6 +4,8 @@ import Layout from '@/components/Layout'
 import Home from '@/pages/Home'
 import Loading from '@/components/Loading'
 
+import '@/App.css'
+
 const router = createBrowserRouter([
 	{
 		path: '/',
