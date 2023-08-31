@@ -8,7 +8,7 @@ export default function Tooltip({ content }) {
 			top="0px"
 			left="[calc(100%+20px)]"
 			z="3"
-			bg="[#fff]"
+			bg="slate-200"
 			h="50px"
 			p="y-6px x-12px"
 			rounded="md"

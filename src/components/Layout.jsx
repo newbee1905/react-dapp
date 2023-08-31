@@ -12,7 +12,9 @@ function Layout() {
 				{navigation.state !== 'idle' && <Loading />}
 			</div>
 			<Header />
-			<Outlet />
+			<main m-l="78px" bg="neutral-200" min-h="screen">
+				<Outlet />
+			</main>
 		</>
 	)
 }

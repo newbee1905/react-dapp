@@ -10,7 +10,7 @@ export default function Menu() {
 			right="0"
 			transition="all"
 			cursor="pointer"
-			text="2xl white center"
+			text="2xl slate-100 center"
 			h="60px"
 			min-w="[50px]"
 			top="50%"

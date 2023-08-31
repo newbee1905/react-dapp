@@ -18,7 +18,7 @@ export default function NavItem({ data }) {
 			transition="all"
 			duration="200"
 			className="group"
-			bg="hover:[#fff]"
+			bg="hover:slate-200"
 			h="50px"
 		>
 			<NavLink
@@ -30,7 +30,7 @@ export default function NavItem({ data }) {
 			>
 				<NavItemIcon icon={data.icon} />
 				<span
-					text="[#fff] group-hover:[#11101d] base 400"
+					text="slate-100 group-hover:[#11101d] base 400"
 					whitespace="nowrap"
 					display="inline-block"
 					transition="all"

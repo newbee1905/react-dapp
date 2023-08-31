@@ -15,7 +15,7 @@ export default function Header() {
 	return (
 		<HeaderContext.Provider value={open}>
 			<HeaderDispatchContext.Provider value={dispatch}>
-				<div
+				<header
 					left="0"
 					top="0"
 					position="fixed"
@@ -23,7 +23,7 @@ export default function Header() {
 					w={!open ? '78px' : '250px'}
 					z="99"
 					transition="all"
-					bg="[#11101D]"
+					bg="cool-gray-950"
 					p="y-6px x-14px"
 					duration="400"
 				>
@@ -32,7 +32,7 @@ export default function Header() {
 						<Menu />
 					</div>
 					<Navbar />
-				</div>
+				</header>
 			</HeaderDispatchContext.Provider>
 		</HeaderContext.Provider>
 	)

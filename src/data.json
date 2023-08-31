@@ -1,0 +1,702 @@
+[
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/btc.svg",
+    "api": "BTCUSD",
+    "name": "BTC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/eth.svg",
+    "api": "ETHUSD",
+    "name": "ETH"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/usdt.svg",
+    "api": "USDTUSD",
+    "name": "USDT"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/steth.svg",
+    "api": "stETHUSD",
+    "name": "stETH"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ada.svg",
+    "api": "ADAUSD",
+    "name": "ADA"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ltc.svg",
+    "api": "LTCUSD",
+    "name": "LTC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/shib.svg",
+    "api": "SHIBUSD",
+    "name": "SHIB"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/uni.svg",
+    "api": "UNIUSD",
+    "name": "UNI"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/xlm.svg",
+    "api": "XLMUSD",
+    "name": "XLM"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/fil.svg",
+    "api": "FILUSD",
+    "name": "FIL"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/efil.svg",
+    "api": "EFILUSD",
+    "name": "EFIL"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ldo.svg",
+    "api": "LDOUSD",
+    "name": "LDO"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/arb.svg",
+    "api": "ARBUSD",
+    "name": "ARB"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/frax.svg",
+    "api": "FRAXUSD",
+    "name": "FRAX"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/imx.svg",
+    "api": "IMXUSD",
+    "name": "IMX"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ape.svg",
+    "api": "APEUSD",
+    "name": "APE"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/chz.svg",
+    "api": "CHZUSD",
+    "name": "CHZ"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/fxs.svg",
+    "api": "FXSUSD",
+    "name": "FXS"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/pepe.svg",
+    "api": "PEPEUSD",
+    "name": "PEPE"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/lusd.svg",
+    "api": "LUSDUSD",
+    "name": "L"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/comp.svg",
+    "api": "COMPUSD",
+    "name": "COMP"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/enj.svg",
+    "api": "ENJUSD",
+    "name": "ENJ"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/hnt.svg",
+    "api": "HNTUSD",
+    "name": "HNT"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/lpt.svg",
+    "api": "LPTUSD",
+    "name": "LPT"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ankr.svg",
+    "api": "ANKRUSD",
+    "name": "ANKR"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/gmt.svg",
+    "api": "GMTUSD",
+    "name": "GMT"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/rbn.svg",
+    "api": "RBNUSD",
+    "name": "RBN"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/bico.svg",
+    "api": "BICOUSD",
+    "name": "BICO"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/mc.svg",
+    "api": "MCUSD",
+    "name": "MC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/iotx.svg",
+    "api": "IOTXUSD",
+    "name": "IOTX"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/sushi.svg",
+    "api": "SUSHIUSD",
+    "name": "SUSHI"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/stg.svg",
+    "api": "STGUSD",
+    "name": "STG"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/amp.svg",
+    "api": "AMPUSD",
+    "name": "AMP"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/knc.svg",
+    "api": "KNCUSD",
+    "name": "KNC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/pla.svg",
+    "api": "PLAUSD",
+    "name": "PLA"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/elon.svg",
+    "api": "ELONUSD",
+    "name": "ELON"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/nmr.svg",
+    "api": "NMRUSD",
+    "name": "NMR"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ach.svg",
+    "api": "ACHUSD",
+    "name": "ACH"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/rad.svg",
+    "api": "RADUSD",
+    "name": "RAD"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/bnt.svg",
+    "api": "BNTUSD",
+    "name": "BNT"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ali.svg",
+    "api": "ALIUSD",
+    "name": "ALI"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/gal.svg",
+    "api": "GALUSD",
+    "name": "GAL"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/metis.svg",
+    "api": "METISUSD",
+    "name": "METIS"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/keep.svg",
+    "api": "KEEPUSD",
+    "name": "KEEP"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/loom.svg",
+    "api": "LOOMUSD",
+    "name": "LOOM"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/eul.svg",
+    "api": "EULUSD",
+    "name": "EUL"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/zbc.svg",
+    "api": "ZBCUSD",
+    "name": "ZBC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/moon.svg",
+    "api": "MOONUSD",
+    "name": "MOON"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/oxt.svg",
+    "api": "OXTUSD",
+    "name": "OXT"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/mpl.svg",
+    "api": "MPLUSD",
+    "name": "MPL"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/tru.svg",
+    "api": "TRUUSD",
+    "name": "TRU"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/tbtc.svg",
+    "api": "tBTCUSD",
+    "name": "tBTC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/rfr.svg",
+    "api": "RFRUSD",
+    "name": "RFR"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ern.svg",
+    "api": "ERNUSD",
+    "name": "ERN"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/kp3r.svg",
+    "api": "KP3RUSD",
+    "name": "KP3R"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/orca.svg",
+    "api": "ORCAUSD",
+    "name": "ORCA"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/gfi.svg",
+    "api": "GFIUSD",
+    "name": "GFI"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/fida.svg",
+    "api": "FIDAUSD",
+    "name": "FIDA"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/dpi.svg",
+    "api": "DPIUSD",
+    "name": "DPI"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/cube.svg",
+    "api": "CUBEUSD",
+    "name": "CUBE"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/samo.svg",
+    "api": "SAMOUSD",
+    "name": "SAMO"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ctx.svg",
+    "api": "CTXUSD",
+    "name": "CTX"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/revv.svg",
+    "api": "REVVUSD",
+    "name": "REVV"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/jam.svg",
+    "api": "JAMUSD",
+    "name": "JAM"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/sbr.svg",
+    "api": "SBRUSD",
+    "name": "SBR"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/tcap.svg",
+    "api": "TCAPUSD",
+    "name": "TCAP"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/weth.svg",
+    "api": "wETHUSD",
+    "name": "wETH"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/mco2.svg",
+    "api": "MCO2USD",
+    "name": "MCO2"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ash.svg",
+    "api": "ASHUSD",
+    "name": "ASH"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/wbtc.svg",
+    "api": "WBTCUSD",
+    "name": "WBTC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/yfi.svg",
+    "api": "YFIUSD",
+    "name": "YFI"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/paxg.svg",
+    "api": "PAXGUSD",
+    "name": "PAXG"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/mkr.svg",
+    "api": "MKRUSD",
+    "name": "MKR"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/bch.svg",
+    "api": "BCHUSD",
+    "name": "BCH"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/qnt.svg",
+    "api": "QNTUSD",
+    "name": "QNT"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/aave.svg",
+    "api": "AAVEUSD",
+    "name": "AAVE"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ilv.svg",
+    "api": "ILVUSD",
+    "name": "ILV"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/wnxm.svg",
+    "api": "WNXMUSD",
+    "name": "WNXM"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/zec.svg",
+    "api": "ZECUSD",
+    "name": "ZEC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/sol.svg",
+    "api": "SOLUSD",
+    "name": "SOL"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/alcx.svg",
+    "api": "ALCXUSD",
+    "name": "ALCX"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/avax.svg",
+    "api": "AVAXUSD",
+    "name": "AVAX"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ens.svg",
+    "api": "ENSUSD",
+    "name": "ENS"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/atom.svg",
+    "api": "ATOMUSD",
+    "name": "ATOM"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/inj.svg",
+    "api": "INJUSD",
+    "name": "INJ"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/link.svg",
+    "api": "LINKUSD",
+    "name": "LINK"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/axs.svg",
+    "api": "AXSUSD",
+    "name": "AXS"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/dot.svg",
+    "api": "DOTUSD",
+    "name": "DOT"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/bal.svg",
+    "api": "BALUSD",
+    "name": "BAL"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/mask.svg",
+    "api": "MASKUSD",
+    "name": "MASK"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/bond.svg",
+    "api": "BONDUSD",
+    "name": "BOND"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/snx.svg",
+    "api": "SNXUSD",
+    "name": "SNX"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/rndr.svg",
+    "api": "RNDRUSD",
+    "name": "RNDR"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/uma.svg",
+    "api": "UMAUSD",
+    "name": "UMA"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/index.svg",
+    "api": "INDEXUSD",
+    "name": "INDEX"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/api3.svg",
+    "api": "API3USD",
+    "name": "API3"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/dai.svg",
+    "api": "DAIUSD",
+    "name": "DAI"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/busd.svg",
+    "api": "BUSDUSD",
+    "name": "B"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/gusd.svg",
+    "api": "GUSDUSD",
+    "name": "GUSD"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/usdc.svg",
+    "api": "USDCUSD",
+    "name": "USDC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/mim.svg",
+    "api": "MIMUSD",
+    "name": "MIM"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/lqty.svg",
+    "api": "LQTYUSD",
+    "name": "LQTY"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/xtz.svg",
+    "api": "XTZUSD",
+    "name": "XTZ"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/toke.svg",
+    "api": "TOKEUSD",
+    "name": "TOKE"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/eos.svg",
+    "api": "EOSUSD",
+    "name": "EOS"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/matic.svg",
+    "api": "MATICUSD",
+    "name": "MATIC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/xrp.svg",
+    "api": "XRPUSD",
+    "name": "XRP"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/omg.svg",
+    "api": "OMGUSD",
+    "name": "OMG"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/crv.svg",
+    "api": "CRVUSD",
+    "name": "CRV"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/sand.svg",
+    "api": "SANDUSD",
+    "name": "SAND"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ocean.svg",
+    "api": "OCEANUSD",
+    "name": "OCEAN"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/mana.svg",
+    "api": "MANAUSD",
+    "name": "MANA"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/1inch.svg",
+    "api": "1INCHUSD",
+    "name": "1INCH"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/storj.svg",
+    "api": "STORJUSD",
+    "name": "STORJ"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/fet.svg",
+    "api": "FETUSD",
+    "name": "FET"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ftm.svg",
+    "api": "FTMUSD",
+    "name": "FTM"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/lrc.svg",
+    "api": "LRCUSD",
+    "name": "LRC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ray.svg",
+    "api": "RAYUSD",
+    "name": "RAY"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/bat.svg",
+    "api": "BATUSD",
+    "name": "BAT"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/zrx.svg",
+    "api": "ZRXUSD",
+    "name": "ZRX"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/audio.svg",
+    "api": "AUDIOUSD",
+    "name": "AUDIO"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ddx.svg",
+    "api": "DDXUSD",
+    "name": "DDX"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/grt.svg",
+    "api": "GRTUSD",
+    "name": "GRT"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/cvc.svg",
+    "api": "CVCUSD",
+    "name": "CVC"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/doge.svg",
+    "api": "DOGEUSD",
+    "name": "DOGE"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/wton.svg",
+    "api": "WTONUSD",
+    "name": "WTON"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/rare.svg",
+    "api": "RAREUSD",
+    "name": "RARE"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/qrdo.svg",
+    "api": "QRDOUSD",
+    "name": "QRDO"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ren.svg",
+    "api": "RENUSD",
+    "name": "REN"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/skl.svg",
+    "api": "SKLUSD",
+    "name": "SKL"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/gala.svg",
+    "api": "GALAUSD",
+    "name": "GALA"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/mir.svg",
+    "api": "MIRUSD",
+    "name": "MIR"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/ust.svg",
+    "api": "USTUSD",
+    "name": "UST"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/rly.svg",
+    "api": "RLYUSD",
+    "name": "RLY"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/brd.svg",
+    "api": "BRDUSD",
+    "name": "BRD"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/slp.svg",
+    "api": "SLPUSD",
+    "name": "SLP"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/csp.svg",
+    "api": "CSPUSD",
+    "name": "CSP"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/spell.svg",
+    "api": "SPELLUSD",
+    "name": "SPELL"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/luna.svg",
+    "api": "LUNAUSD",
+    "name": "LUNA"
+  },
+  {
+    "img": "https://www.gemini.com/images/currencies/icons/default/gnt.svg",
+    "api": "GNTUSD",
+    "name": "GNT"
+  }
+]

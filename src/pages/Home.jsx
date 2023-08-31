@@ -4,7 +4,7 @@ import {
 
 function Home() {
   return (
-    <div>
+    <div p="x-[2rem] y-[1rem]" >
       <h2>H</h2>
 			<Link to="about">Test</Link>
     </div>
