@@ -11,7 +11,7 @@ export default create(
 			getData: async () => {
 				const changed = localStorage.getItem('coins-data-changed')
 				if (changed) {
-					if (Date.now() - changed < 60 * 1000) {
+					if (Date.now() - changed < 60 * 60 * 1000) {
 						return set({})
 					}
 				}
