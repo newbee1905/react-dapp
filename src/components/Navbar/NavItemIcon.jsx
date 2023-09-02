@@ -1,3 +1,10 @@
+import PropTypes from 'prop-types'
+
+/**
+ * Pre-styled navbar's item's icon
+ *
+ * @component
+ */
 export default function NavItemIcon({ icon }) {
 	return (
 		<span
@@ -16,4 +23,11 @@ export default function NavItemIcon({ icon }) {
 			/>
 		</span>
 	)
+}
+
+NavItemIcon.propTypes = {
+	/**
+	 * The icon code name for uno-css
+	 */
+	icon: PropTypes.string.isRequired,
 }

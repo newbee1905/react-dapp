@@ -3,8 +3,14 @@ import { HeaderContext } from '@/contexts/HeaderContext';
 
 import LogoImage from '@/assets/logo.png'
 
+/**
+ * Component for the Site Logo 
+ * 
+ * @component
+ */
 export default function HeaderLogo() {
 	const open = useContext(HeaderContext);
+
 	return (
 		<>
 			<span>

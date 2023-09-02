@@ -16,4 +16,19 @@ function Loading() {
 	)
 }
 
+export function SkeletonLoading() {
+	return (
+		<div role="status" w="full" animate="pulse">
+			<div h="2.5" bg="gray-600" rounded="full" mb="4" />
+			<div h="2.5" bg="gray-600" rounded="full" mb="4" />
+			<div h="2.5" bg="gray-600" rounded="full" mb="4" />
+			<div h="2.5" bg="gray-600" rounded="full" mb="4" />
+			<div h="2.5" bg="gray-600" rounded="full" mb="4" />
+			<div h="2.5" bg="gray-600" rounded="full" mb="4" />
+			<div h="2.5" bg="gray-600" rounded="full" mb="4" />
+			<div h="2.5" bg="gray-600" rounded="full" mb="4" />
+		</div>
+	)
+}
+
 export default Loading

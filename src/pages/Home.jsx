@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 
 import useCoinStore from '@/stores/coins'
 
@@ -12,28 +12,42 @@ export default function Home() {
 	const [input, setInput] = useState('')
 	const data = useCoinStore((state) => state.data)
 
-	const curHour = new Date().getHours()
-	const options = {
-		chart: {
-			id: 'basic-bar',
-			foreColor: '#fff',
-		},
-		xaxis: {
-			categories: Array(24)
-				.fill()
-				.map((_, id) => ((id + curHour) % 24) + 1),
-		},
-		colors: ['#0ea5e9'],
-	}
+	/**
+	 * using use memo here so that the value of these value only update
+	 * the value of data
+	 * -> updating input will not affect this
+	 */
 
-	const dataValues = Object.values(data)
-	const randomData = dataValues[getRandomInt(dataValues.length - 1)]
-	const series = [
-		{
-			name: randomData.values.symbol.slice(0, -3),
-			data: randomData.values.changes,
-		},
-	]
+	const curHour = new Date().getHours()
+	const options = useMemo(() => {
+		return {
+			chart: {
+				id: 'basic-bar',
+				foreColor: '#fff',
+			},
+			xaxis: {
+				categories: Array(24)
+					.fill()
+					.map((_, id) => ((id + curHour) % 24) + 1),
+			},
+			colors: ['#0ea5e9'],
+		}
+	}, [curHour])
+
+	const dataValues = useMemo(() => Object.values(data), [data])
+	const randomData = useMemo(
+		() => dataValues[getRandomInt(dataValues.length - 1)],
+		[data]
+	)
+	const series = useMemo(
+		() => [
+			{
+				name: randomData.values.symbol.slice(0, -3),
+				data: randomData.values.changes,
+			},
+		],
+		[randomData]
+	)
 
 	return (
 		<div w="full" h="full">
@@ -47,7 +61,9 @@ export default function Home() {
 				justify="between"
 			>
 				<div w="xl:2/3 full" display="none md:block">
-					<h2 text="slate-200" m="x-4">You may interest in {randomData.values.symbol.slice(0, -3)}</h2>
+					<h2 text="slate-200" m="x-4">
+						You may interest in {randomData.values.symbol.slice(0, -3)}
+					</h2>
 					<Chart options={options} series={series} type="line" />
 				</div>
 				<MarketTable input={input} />

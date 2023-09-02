@@ -1,12 +1,7 @@
 const routes = Object.freeze([
 	{
-		icon: 'tabler-search',
-		content: 'Search',
-		link: '/search',
-	},
-	{
 		icon: 'tabler-home-2',
-		content: 'Home',
+		content: 'Market',
 		link: '/',
 	},
 	{
@@ -18,11 +13,6 @@ const routes = Object.freeze([
 		icon: 'tabler-arrows-exchange',
 		content: 'Exchange',
 		link: '/exchange',
-	},
-	{
-		icon: 'tabler-brand-mastercard',
-		content: 'Trading',
-		link: '/trading',
 	},
 	{
 		icon: 'tabler-clock-dollar',
