@@ -63,5 +63,5 @@ NavItem.propTypes = {
 	 * - icon 
 	 * - name/content
 	 */
-	rotue: PropTypes.object.isRequired
+	route: PropTypes.object.isRequired
 }

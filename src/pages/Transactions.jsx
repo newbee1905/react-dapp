@@ -3,10 +3,7 @@ import { useState, useMemo } from 'react'
 import useCoinStore from '@/stores/coins'
 
 import SearchBar from '@/components/SearchBar'
-import MarketTable from '@/components/Table/MarketTable'
-import Chart from 'react-apexcharts'
-
-import { getRandomInt } from '@/utils'
+import TransactionsTable from '@/components/Table/TransactionsTable'
 
 export default function Transactions() {
 	const [input, setInput] = useState('')
@@ -18,55 +15,18 @@ export default function Transactions() {
 	 * -> updating input will not affect this
 	 */
 
-	const curHour = new Date().getHours()
-	const options = useMemo(() => {
-		return {
-			chart: {
-				id: 'basic-bar',
-				foreColor: '#fff',
-			},
-			xaxis: {
-				categories: Array(24)
-					.fill()
-					.map((_, id) => ((id + curHour) % 24) + 1),
-			},
-			colors: ['#0ea5e9'],
-		}
-	}, [curHour])
-
-	const dataValues = useMemo(() => Object.values(data), [data])
-	const randomData = useMemo(
-		() => dataValues[getRandomInt(dataValues.length - 1)],
-		[data]
-	)
-	const series = useMemo(
-		() => [
-			{
-				name: randomData.values.symbol.slice(0, -3),
-				data: randomData.values.changes,
-			},
-		],
-		[randomData]
-	)
-
 	return (
 		<div w="full" h="full">
 			<SearchBar input={input} setInput={setInput} />
 			<div
 				p="md:x-10 y-4 x-2"
 				display="flex"
-				flex="col xl:row"
+				flex="row"
 				w="full"
 				h="full"
 				justify="between"
 			>
-				<div w="xl:2/3 full" display="none md:block">
-					<h2 text="slate-200" m="x-4">
-						You may interest in {randomData.values.symbol.slice(0, -3)}
-					</h2>
-					<Chart options={options} series={series} type="line" />
-				</div>
-				<MarketTable input={input} />
+				<TransactionsTable input={input} w="full" />
 			</div>
 		</div>
 	)

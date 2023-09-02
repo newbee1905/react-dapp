@@ -46,7 +46,6 @@ export default function Wallet() {
 			return acc;
 		}, Array(24).fill(0))
 	}, [data, walletKeys])
-	console.log(processedData)
 
 	const series = useMemo(
 		() => [

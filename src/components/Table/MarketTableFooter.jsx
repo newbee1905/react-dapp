@@ -27,7 +27,7 @@ export default function MarketTableFooter({
 			<span text="xs md:base normal gray-400">
 				Showing
 				<span text="semibold slate-200">
-					&nbsp;{chunkId * 15 + 1} - {(chunkId + 1) * 15 + 1}
+					&nbsp;{chunkId * 10 + 1} - {(chunkId + 1) * 10 + 1}
 					&nbsp;
 				</span>
 				of

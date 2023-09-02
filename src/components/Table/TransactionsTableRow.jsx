@@ -8,25 +8,24 @@ import MarketTableTextCell from '@/components/Table/MarketTableTextCell'
  * @component
  */
 export default function MarketTableRow({ coin }) {
+	console.log(coin)
 	return (
 		<tr bg="hover:slate-950">
 			<MarketTableData align="right" display="flex">
-				<img src={coin[1].img} alt={coin[0]} w="[24px]" h="[24px]" />
-				<MarketTableTextCell>{coin[0]}</MarketTableTextCell>
+				<img src={coin.img} alt={coin.symbol} w="[24px]" h="[24px]" />
+				<MarketTableTextCell>{coin.symbol}</MarketTableTextCell>
+			</MarketTableData>
+			<MarketTableData align="center">
+				<MarketTableTextCell>{coin.amount}</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="center">
 				<MarketTableTextCell>
-					{coin[1].values.changes[0]}
+					{(coin.amount * coin.changes).toFixed(2)}
 				</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="right">
-				<MarketTableTextCell
-					textStyle={
-						(coin[1].values.diff >= 0 ? 'text-green-500' : 'text-red-500') +
-						' md:text-base text-xs text-medium'
-					}
-				>
-					{coin[1].values.diff.toFixed(2)}%
+				<MarketTableTextCell>
+				{new Date(coin.date).toJSON().slice(0, 10)}
 				</MarketTableTextCell>
 			</MarketTableData>
 		</tr>
