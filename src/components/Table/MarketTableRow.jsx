@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import MarketTableData from '@/components/MarketTable/MarketTableData'
-import MarketTableTextCell from '@/components/MarketTable/MarketTableTextCell'
+import MarketTableData from '@/components/Table/MarketTableData'
+import MarketTableTextCell from '@/components/Table/MarketTableTextCell'
 
 /**
  * Pre-styled sub component for rows of the Market Table
@@ -15,12 +15,18 @@ export default function MarketTableRow({ coin }) {
 				<MarketTableTextCell>{coin[0]}</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="center">
-				<MarketTableTextCell>{coin[1].values.changes[0]}</MarketTableTextCell>
+				<MarketTableTextCell>{coin[1].total}</MarketTableTextCell>
+			</MarketTableData>
+			<MarketTableData align="center">
+				<MarketTableTextCell>
+					{coin[1].values.changes[0] * coin[1].total}
+				</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="right">
 				<MarketTableTextCell
 					textStyle={
-						(coin[1].values.diff >= 0 ? 'text-green-500' : 'text-red-500') + ' md:text-base text-xs text-medium'
+						(coin[1].values.diff >= 0 ? 'text-green-500' : 'text-red-500') +
+						' md:text-base text-xs text-medium'
 					}
 				>
 					{coin[1].values.diff.toFixed(2)}%

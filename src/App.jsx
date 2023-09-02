@@ -2,7 +2,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Layout from '@/components/Layout'
 import Home from '@/pages/Home'
-import Search from '@/pages/Search'
+import Wallet from '@/pages/Wallet'
+import Transactions from '@/pages/Transactions'
+import Exchange from '@/pages/Exchange'
+import Trading from '@/pages/Trading'
 import Loading from '@/components/Loading'
 
 import '@/App.css'
@@ -17,13 +20,25 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: 'search',
-				element: <Search />,
+				path: 'wallet',
+				element: <Wallet />,
 			},
 			{
-				path: 'about',
-				lazy: () => import('./pages/About'),
+				path: 'transactions',
+				element: <Transactions/>,
 			},
+			{
+				path: 'exchange',
+				element: <Exchange />,
+			},
+			{
+				path: 'trading/:coin',
+				element: <Trading />,
+			},
+			// {
+			// 	path: 'about',
+			// 	lazy: () => import('./pages/About'),
+			// },
 		],
 	},
 ])

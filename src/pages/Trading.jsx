@@ -8,7 +8,7 @@ import Chart from 'react-apexcharts'
 
 import { getRandomInt } from '@/utils'
 
-export default function Home() {
+export default function Trading() {
 	const [input, setInput] = useState('')
 	const data = useCoinStore((state) => state.data)
 
@@ -17,6 +17,7 @@ export default function Home() {
 	 * the value of data
 	 * -> updating input will not affect this
 	 */
+
 	const curHour = new Date().getHours()
 	const options = useMemo(() => {
 		return {
@@ -42,7 +43,7 @@ export default function Home() {
 		() => [
 			{
 				name: randomData.values.symbol.slice(0, -3),
-				data: randomData.values.changes.reverse(),
+				data: randomData.values.changes,
 			},
 		],
 		[randomData]

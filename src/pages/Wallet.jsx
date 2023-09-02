@@ -3,20 +3,22 @@ import { useState, useMemo } from 'react'
 import useCoinStore from '@/stores/coins'
 
 import SearchBar from '@/components/SearchBar'
-import MarketTable from '@/components/Table/MarketTable'
+import WalletTable from '@/components/Table/WalletTable'
 import Chart from 'react-apexcharts'
 
-import { getRandomInt } from '@/utils'
+import WalletData from '@/wallet.json'
 
-export default function Home() {
+export default function Wallet() {
 	const [input, setInput] = useState('')
 	const data = useCoinStore((state) => state.data)
+	const walletKeys = useMemo(() => Object.keys(WalletData))
 
 	/**
 	 * using use memo here so that the value of these value only update
 	 * the value of data
 	 * -> updating input will not affect this
 	 */
+
 	const curHour = new Date().getHours()
 	const options = useMemo(() => {
 		return {
@@ -33,19 +35,27 @@ export default function Home() {
 		}
 	}, [curHour])
 
-	const dataValues = useMemo(() => Object.values(data), [data])
-	const randomData = useMemo(
-		() => dataValues[getRandomInt(dataValues.length - 1)],
-		[data]
-	)
+	const processedData = useMemo(() => {
+		return Object.entries(data).reduce((acc, cur) => {
+			if (walletKeys.indexOf(cur[0]) === -1)
+				return acc;
+			for (let i = 0; i < 24; ++i) {
+				acc[i] += WalletData[cur[0]].total * cur[1].values.changes[i]
+				acc[i] = acc[i].toFixed(2)
+			}
+			return acc;
+		}, Array(24).fill(0))
+	}, [data, walletKeys])
+	console.log(processedData)
+
 	const series = useMemo(
 		() => [
 			{
-				name: randomData.values.symbol.slice(0, -3),
-				data: randomData.values.changes.reverse(),
+				name: "Portfolio",
+				data: processedData.reverse(),
 			},
 		],
-		[randomData]
+		[]
 	)
 
 	return (
@@ -59,13 +69,13 @@ export default function Home() {
 				h="full"
 				justify="between"
 			>
+				<WalletTable input={input} />
 				<div w="xl:2/3 full" display="none md:block">
 					<h2 text="slate-200" m="x-4">
-						You may interest in {randomData.values.symbol.slice(0, -3)}
+						Your Portfolio: {processedData[0]}
 					</h2>
 					<Chart options={options} series={series} type="line" />
 				</div>
-				<MarketTable input={input} />
 			</div>
 		</div>
 	)

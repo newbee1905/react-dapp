@@ -5,9 +5,9 @@ import useCoinStore from '@/stores/coins'
 
 import { arrayChunks } from '@/utils'
 
-import MarketTableFooter from '@/components/MarketTable/MarketTableFooter'
-import MarketTableRow from '@/components/MarketTable/MarketTableRow'
-import MarketTableSkeletonLoading from '@/components/MarketTable/MarketTableSkeletonLoading'
+import MarketTableFooter from '@/components/Table/MarketTableFooter'
+import MarketTableRow from '@/components/Table/MarketTableRow'
+import MarketTableSkeletonLoading from '@/components/Table/MarketTableSkeletonLoading'
 
 /**
  * Pre-styled table for the market data
