@@ -11,7 +11,7 @@ export default create(
 			getData: async () => {
 				const changed = localStorage.getItem('coins-data-changed')
 				if (changed) {
-					if (Date.now() - changed < 60 * 60 * 1000) {
+					if (Date.now() - changed < 60 * 60 * 1000 && Object.entries(get().data).length > 0) {
 						return set({})
 					}
 				}
@@ -25,7 +25,6 @@ export default create(
 						(coinValues.changes[0] - coinValues.changes[23]) /
 						coinValues.changes[0]
 					if (!coinValues.diff) coinValues.diff = 0
-					console.log(coinValues.diff)
 					coinValues.diff *= 100
 
 					data[key] = {
