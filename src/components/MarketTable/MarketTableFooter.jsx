@@ -24,7 +24,7 @@ export default function MarketTableFooter({
 			space="y-3 md:y-0"
 			aria-label="Table navigation"
 		>
-			<span text="base normal gray-400">
+			<span text="xs md:base normal gray-400">
 				Showing
 				<span text="semibold slate-200">
 					&nbsp;{chunkId * 15 + 1} - {(chunkId + 1) * 15 + 1}
@@ -38,7 +38,7 @@ export default function MarketTableFooter({
 			<select
 				display="block"
 				p="x-1 y-2"
-				text="base normal gray-900"
+				text="xs md:base normal gray-900"
 				rounded="md"
 				shadow="lg"
 				bg="slate-200 "

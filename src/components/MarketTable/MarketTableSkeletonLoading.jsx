@@ -1,3 +1,8 @@
+/**
+ * Loading the table when data is not being loaded
+ * 
+ * @component
+ */
 export default function MarketTableSkeletonLoading() {
 	return (
 		<>

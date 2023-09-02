@@ -20,7 +20,7 @@ export default function MarketTableRow({ coin }) {
 			<MarketTableData align="right">
 				<MarketTableTextCell
 					textStyle={
-						(coin[1].values.diff >= 0 ? 'green-500' : 'red-500') + ' base medium'
+						(coin[1].values.diff >= 0 ? 'text-green-500' : 'text-red-500') + ' md:text-base text-xs text-medium'
 					}
 				>
 					{coin[1].values.diff.toFixed(2)}%

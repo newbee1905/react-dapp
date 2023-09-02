@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { SkeletonLoading } from '@/components/Loading'
 import useCoinStore from '@/stores/coins'
 
 import { arrayChunks } from '@/utils'
@@ -15,8 +14,9 @@ import MarketTableSkeletonLoading from '@/components/MarketTable/MarketTableSkel
  *
  * @component
  */
-export default function MarketTable({ input }) {
+export default function MarketTable(props) {
 	const data = useCoinStore((state) => Object.entries(state.data))
+	const { input } = props
 
 	let processedData = data.filter(([key, value]) =>
 		key.toLowerCase().includes(input.toLowerCase())
@@ -25,22 +25,24 @@ export default function MarketTable({ input }) {
 	const [chunkId, setChunkId] = useState(0)
 
 	return (
-		<div w="full" p="x-3">
+		<div p="x-3" {...props}>
 			<div
 				position="relative"
 				overflow="hidden"
 				display="flex"
 				justify="center"
+				w="full"
 			>
 				<div
 					overflow="x-auto"
 					max-w="6xl"
+					w="full"
 					p="y-4 x-4"
 					rounded="xl"
 					bg="slate-900"
 				>
-					<table w="full" text="sm left slate-200">
-						<thead text="base slate-200 uppercase">
+					<table w="full" text="left slate-200">
+						<thead text="xs md:base slate-200 uppercase">
 							<tr>
 								{MarketTable.tableHeaders.map((header) => (
 									<th scope="col" p="x-4 y-3" key={header[0]} align={header[1]}>
