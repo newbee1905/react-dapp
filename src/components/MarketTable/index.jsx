@@ -8,6 +8,7 @@ import { arrayChunks } from '@/utils'
 
 import MarketTableFooter from '@/components/MarketTable/MarketTableFooter'
 import MarketTableRow from '@/components/MarketTable/MarketTableRow'
+import MarketTableSkeletonLoading from '@/components/MarketTable/MarketTableSkeletonLoading'
 
 /**
  * Pre-styled table for the market data
@@ -15,9 +16,9 @@ import MarketTableRow from '@/components/MarketTable/MarketTableRow'
  * @component
  */
 export default function MarketTable({ input }) {
-	const data = useCoinStore((state) => state.data)
+	const data = useCoinStore((state) => Object.entries(state.data))
 
-	let processedData = Object.entries(data).filter(([key, value]) =>
+	let processedData = data.filter(([key, value]) =>
 		key.toLowerCase().includes(input.toLowerCase())
 	)
 	let processedDataChunks = arrayChunks(processedData, 10)
@@ -25,47 +26,51 @@ export default function MarketTable({ input }) {
 
 	return (
 		<div w="full" p="x-3">
-			{!data || processedData.length === 0 ? (
-				<SkeletonLoading />
-			) : (
-				<div position="relative" overflow="hidden">
-					<div
-						overflow="x-auto"
-						max-w="6xl"
-						p="y-4 x-4"
-						rounded="xl"
-						bg="slate-900"
-					>
-						<table w="full" text="sm left slate-200">
-							<thead text="base slate-200 uppercase">
-								<tr>
-									{MarketTable.tableHeaders.map((header) => (
-										<th
-											scope="col"
-											p="x-4 y-3"
-											key={header[0]}
-											align={header[1]}
-										>
-											{header[0]}
-										</th>
-									))}
-								</tr>
-							</thead>
-							<tbody>
-								{(processedDataChunks[chunkId] ?? []).map((coin) => (
-									<MarketTableRow key={coin[0]} coin={coin} />
+			<div
+				position="relative"
+				overflow="hidden"
+				display="flex"
+				justify="center"
+			>
+				<div
+					overflow="x-auto"
+					max-w="6xl"
+					p="y-4 x-4"
+					rounded="xl"
+					bg="slate-900"
+				>
+					<table w="full" text="sm left slate-200">
+						<thead text="base slate-200 uppercase">
+							<tr>
+								{MarketTable.tableHeaders.map((header) => (
+									<th scope="col" p="x-4 y-3" key={header[0]} align={header[1]}>
+										{header[0]}
+									</th>
 								))}
-							</tbody>
-						</table>
-						<MarketTableFooter
-							processedData={processedData}
-							processedDataChunks={processedDataChunks}
-							chunkId={chunkId}
-							setChunkId={setChunkId}
-						/>
-					</div>
+							</tr>
+						</thead>
+						<tbody>
+							{data.length === 0 ? (
+								<MarketTableSkeletonLoading />
+							) : (
+								(processedDataChunks[chunkId] ?? []).map((coin) => (
+									<MarketTableRow
+										key={coin[0]}
+										coin={coin}
+										loading={data.length === 0}
+									/>
+								))
+							)}
+						</tbody>
+					</table>
+					<MarketTableFooter
+						processedData={processedData}
+						processedDataChunks={processedDataChunks}
+						chunkId={chunkId}
+						setChunkId={setChunkId}
+					/>
 				</div>
-			)}
+			</div>
 		</div>
 	)
 }
