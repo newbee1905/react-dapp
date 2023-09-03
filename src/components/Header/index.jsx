@@ -26,9 +26,9 @@ export default function Header() {
 					position="fixed"
 					h="full"
 					w={!open ? '78px' : 'md:250px full'}
-					z="99"
+					z="50"
 					transition="all"
-					bg="cool-gray-950"
+					bg="cool-gray-900"
 					p="y-6px x-14px"
 					duration="400"
 				>
