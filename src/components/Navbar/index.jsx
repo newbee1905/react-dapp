@@ -1,7 +1,6 @@
 import NavItem from '@/components/Navbar/NavItem'
 import routes from '@/routes'
 
-
 export default function Navbar() {
 	return (
 		<>

@@ -1,22 +1,21 @@
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 
 import useCoinStore from '@/stores/coins'
 
-import SearchBar from '@/components/SearchBar'
-import MarketTable from '@/components/Table/MarketTable'
 import Chart from 'react-apexcharts'
 
-import { getRandomInt } from '@/utils'
+import { useParams, useNavigate } from 'react-router-dom'
+
+import TradingBox from '@/components/Trading/TradingBox'
 
 export default function Trading() {
-	const [input, setInput] = useState('')
 	const data = useCoinStore((state) => state.data)
 
-	/**
-	 * using use memo here so that the value of these value only update
-	 * the value of data
-	 * -> updating input will not affect this
-	 */
+	const navigate = useNavigate()
+	const { coin } = useParams()
+	if (!data.hasOwnProperty(coin)) {
+		navigate('/')
+	}
 
 	const curHour = new Date().getHours()
 	const options = useMemo(() => {
@@ -34,39 +33,42 @@ export default function Trading() {
 		}
 	}, [curHour])
 
-	const dataValues = useMemo(() => Object.values(data), [data])
-	const randomData = useMemo(
-		() => dataValues[getRandomInt(dataValues.length - 1)],
-		[data]
-	)
 	const series = useMemo(
 		() => [
 			{
-				name: randomData.values.symbol.slice(0, -3),
-				data: randomData.values.changes,
+				name: coin,
+				data: data[coin].values.changes,
 			},
 		],
-		[randomData]
+		[coin, data]
 	)
 
 	return (
 		<div w="full" h="full">
-			<SearchBar input={input} setInput={setInput} />
 			<div
-				p="md:x-10 y-4 x-2"
+				p="md:x-10 y-20 x-2"
 				display="flex"
 				flex="col xl:row"
 				w="full"
 				h="full"
 				justify="between"
 			>
+				<div w="xl:1/3 full" m="r-10">
+					<TradingBox coin={coin} />
+				</div>
 				<div w="xl:2/3 full" display="none md:block">
-					<h2 text="slate-200" m="x-4">
-						You may interest in {randomData.values.symbol.slice(0, -3)}
-					</h2>
+					<span
+						text="slate-200 4xl extrabold"
+						m="x-4"
+						display="inline-flex"
+						items="center"
+					>
+						<img src={data[coin].img} alt={coin.symbol} w="[40px]" h="[40px]" />
+						&nbsp;
+						{coin}
+					</span>
 					<Chart options={options} series={series} type="line" />
 				</div>
-				<MarketTable input={input} />
 			</div>
 		</div>
 	)

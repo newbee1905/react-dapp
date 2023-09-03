@@ -2,22 +2,27 @@ import PropTypes from 'prop-types'
 import MarketTableData from '@/components/Table/MarketTableData'
 import MarketTableTextCell from '@/components/Table/MarketTableTextCell'
 
+import { useNavigate } from 'react-router-dom'
+
 /**
  * Pre-styled sub component for rows of the Market Table
  *
  * @component
  */
 export default function MarketTableRow({ coin }) {
+	const navigate = useNavigate()
+	function handleClick(e) {
+		navigate(`/trading/${coin[0]}`)
+	}
+
 	return (
-		<tr bg="hover:slate-950">
+		<tr onClick={handleClick} bg="hover:slate-950">
 			<MarketTableData align="right" display="flex">
 				<img src={coin[1].img} alt={coin[0]} w="[24px]" h="[24px]" />
 				<MarketTableTextCell>{coin[0]}</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="center">
-				<MarketTableTextCell>
-					{coin[1].values.changes[0]}
-				</MarketTableTextCell>
+				<MarketTableTextCell>{coin[1].values.changes[0]}</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="right">
 				<MarketTableTextCell

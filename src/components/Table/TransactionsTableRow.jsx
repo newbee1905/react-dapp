@@ -8,7 +8,6 @@ import MarketTableTextCell from '@/components/Table/MarketTableTextCell'
  * @component
  */
 export default function MarketTableRow({ coin }) {
-	console.log(coin)
 	return (
 		<tr bg="hover:slate-950">
 			<MarketTableData align="right" display="flex">

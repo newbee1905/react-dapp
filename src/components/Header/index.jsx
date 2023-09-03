@@ -1,7 +1,7 @@
 import { useReducer } from 'react'
 
 import Navbar from '@/components/Navbar'
-import Menu from '@/components/Menu'
+import Menu from '@/components/Header/Menu'
 import HeaderLogo from '@/components/Header/HeaderLogo'
 import {
 	HeaderContext,

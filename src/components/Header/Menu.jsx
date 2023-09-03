@@ -1,9 +1,15 @@
 import { useContext } from 'react'
 import { HeaderContext, HeaderDispatchContext } from '@/contexts/HeaderContext'
 
+/**
+ * Menu Button for the Header
+ * 
+ * @component
+ */
 export default function Menu() {
 	const open = useContext(HeaderContext)
 	const dispatch = useContext(HeaderDispatchContext)
+
 	return (
 		<label
 			position="absolute"
