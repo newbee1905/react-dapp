@@ -9,7 +9,7 @@ export default function MarketTableFooter({
 }) {
 	function handleChange(e) {
 		const value = parseInt(e.target.value)
-		if (value === NaN) {
+		if (value.isNaN()) {
 			return
 		}
 		setChunkId(value)
