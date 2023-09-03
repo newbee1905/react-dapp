@@ -18,7 +18,6 @@ export default create(
 						coinValues.changes[0]
 					if (!coinValues.diff) coinValues.diff = 0
 					coinValues.diff *= 100
-					console.log(value)
 
 					data[key] = {
 						...value,
