@@ -5,6 +5,7 @@ export default function MarketTableFooter({
 	processedDataChunks,
 	chunkId,
 	setChunkId,
+	step,
 }) {
 	function handleChange(e) {
 		const value = parseInt(e.target.value)
@@ -27,7 +28,8 @@ export default function MarketTableFooter({
 			<span text="xs md:base normal gray-400">
 				Showing
 				<span text="semibold slate-200">
-					&nbsp;{chunkId * 10 + 1} - {(chunkId + 1) * 10 + 1}
+					&nbsp;{chunkId * step + 1} -{' '}
+					{Math.min((chunkId + 1) * step + 1, processedData.length)}
 					&nbsp;
 				</span>
 				of

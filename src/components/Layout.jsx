@@ -31,17 +31,4 @@ function Layout() {
 	)
 }
 
-export function _Layout({ children }) {
-	// let navigation = useNavigation()
-
-	return (
-		<>
-			<Header />
-			<main m-l="78px" bg="gray-800" min-h="screen">
-				{children}
-			</main>
-		</>
-	)
-}
-
 export default Layout

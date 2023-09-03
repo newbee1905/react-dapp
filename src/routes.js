@@ -10,11 +10,6 @@ const routes = Object.freeze([
 		link: '/wallet',
 	},
 	{
-		icon: 'tabler-arrows-exchange',
-		content: 'Exchange',
-		link: '/exchange',
-	},
-	{
 		icon: 'tabler-clock-dollar',
 		content: 'Transactions',
 		link: '/transactions',

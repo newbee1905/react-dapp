@@ -37,20 +37,19 @@ export default function Wallet() {
 
 	const processedData = useMemo(() => {
 		return Object.entries(data).reduce((acc, cur) => {
-			if (walletKeys.indexOf(cur[0]) === -1)
-				return acc;
+			if (walletKeys.indexOf(cur[0]) === -1) return acc
 			for (let i = 0; i < 24; ++i) {
 				acc[i] += WalletData[cur[0]].total * cur[1].values.changes[i]
 				acc[i] = acc[i].toFixed(2)
 			}
-			return acc;
+			return acc
 		}, Array(24).fill(0))
 	}, [data, walletKeys])
 
 	const series = useMemo(
 		() => [
 			{
-				name: "Portfolio",
+				name: 'Portfolio',
 				data: processedData.reverse(),
 			},
 		],
@@ -67,6 +66,7 @@ export default function Wallet() {
 				w="full"
 				h="full"
 				justify="between"
+				m="t-10"
 			>
 				<WalletTable input={input} />
 				<div w="xl:2/3 full" display="none md:block">

@@ -1,12 +1,9 @@
 import {
 	RouterProvider,
 	createBrowserRouter,
-	BrowserRouter,
-	Route,
-	Routes,
 } from 'react-router-dom'
 
-import Layout, { _Layout } from '@/components/Layout'
+import Layout from '@/components/Layout'
 import Home from '@/pages/Home'
 import Wallet from '@/pages/Wallet'
 import Transactions from '@/pages/Transactions'
@@ -34,10 +31,6 @@ const router = createBrowserRouter([
 				element: <Transactions />,
 			},
 			{
-				path: 'exchange',
-				element: <Exchange />,
-			},
-			{
 				path: 'trading/:coin',
 				element: <Trading />,
 			},
@@ -50,31 +43,7 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-	return (
-		<RouterProvider
-			router={router}
-			fallbackElement={
-				<_Layout>
-					<Loading />
-				</_Layout>
-			}
-		/>
-	)
+	return <RouterProvider router={router} fallbackElement={<Loading />} />
 }
 
 export default App
-
-// export default function App() {
-// 	return (
-// 		<BrowserRouter>
-// 			<Routes>
-// 				<Route element={<Layout />}>
-// 					<Route path="/" element={<Home />} />
-// 					<Route path="/wallet" element={<Wallet />} />
-// 					<Route path="/transactions" element={<Transactions />} />
-// 					<Route path="/trading/:coin" element={<Trading />} />
-// 				</Route>
-// 			</Routes>
-// 		</BrowserRouter>
-// 	)
-// }

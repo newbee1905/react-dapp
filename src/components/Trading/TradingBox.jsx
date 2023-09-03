@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { useState, useMemo } from 'react'
 
 import useCoinStore from '@/stores/coins'
+import TradingCoinsSelection from '@/components/Trading/TradingCoinsSelection'
 
 /**
  * A Trading Box for buying and selling coins
@@ -9,10 +10,23 @@ import useCoinStore from '@/stores/coins'
  * @component
  */
 export default function TradingBox({ coin }) {
-	const pages = useMemo(() => [`Buy ${coin}`, `Sell ${coin}`], [coin])
+	const pages = useMemo(
+		() => [`Buy ${coin}`, `Sell ${coin}`, `Trade ${coin}`],
+		[coin]
+	)
 	const [pageId, setPageId] = useState(0)
 
 	const data = useCoinStore((state) => state.data)
+
+	const filteredData = useMemo(() => {
+		const copy = { ...data }
+		delete copy[coin]
+		return copy
+	}, [data])
+
+	const [tradingCoin, setTradingCoin] = useState(
+		filteredData[Object.keys(filteredData)[0]]
+	)
 
 	return (
 		<>
@@ -31,6 +45,7 @@ export default function TradingBox({ coin }) {
 						flex="auto"
 						text="slate-200 center"
 						onClick={() => setPageId(id)}
+						key={id}
 					>
 						<span
 							m="y-2"
@@ -62,12 +77,22 @@ export default function TradingBox({ coin }) {
 					bg="slate-800"
 					outline="transparent"
 					border="2 slate-200 solid"
-					placeholder={pageId === 0 ? 'Buy' : 'Sell'}
+					placeholder={pages[pageId].split(' ')[0]}
 					m="b-3"
 				/>
+				{pageId === 2 ? <TradingCoinsSelection coin={tradingCoin} setCoin={setTradingCoin} data={filteredData} /> : <></>}
 				<div m="y-3" text="slate-200 3xl" display="flex" justify="between">
-					<span>1 {coin} </span> <span> = </span>{' '}
-					<span> ${data[coin].values.changes[0]}</span>
+					<span>1 {coin} </span> <span> = </span>
+					{pageId === 2 ? (
+						<span>
+							{tradingCoin.name}
+							{(
+								data[coin].values.changes[0] / tradingCoin.values.changes[0]
+							).toFixed(2)}
+						</span>
+					) : (
+						<span> ${data[coin].values.changes[0]}</span>
+					)}
 				</div>
 				<button
 					p="x-1.5 y-5.5"
@@ -80,7 +105,7 @@ export default function TradingBox({ coin }) {
 					border="0"
 					className="upperclase"
 				>
-					{pageId === 0 ? 'Buy' : 'Sell'}
+					{pages[pageId].split(' ')[0]}
 				</button>
 			</div>
 		</>

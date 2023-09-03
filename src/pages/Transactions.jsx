@@ -16,6 +16,7 @@ export default function Transactions() {
 				w="full"
 				h="full"
 				justify="between"
+ m="t-10" 
 			>
 				<TransactionsTable input={input} w="full" />
 			</div>

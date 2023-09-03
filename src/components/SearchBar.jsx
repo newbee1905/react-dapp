@@ -1,6 +1,6 @@
 export default function SearchBar({ input, setInput }) {
 	return (
-		<div m-b="10">
+		<div>
 			<label
 				htmlFor="default-search"
 				m="b-2"

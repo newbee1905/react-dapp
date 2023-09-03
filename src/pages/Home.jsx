@@ -61,6 +61,7 @@ export default function Home() {
 				w="full"
 				h="full"
 				justify="between"
+				m="t-10"
 			>
 				<div w="xl:2/3 full" display="none md:block">
 					<h2 text="slate-200" m="x-4">
