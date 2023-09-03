@@ -28,6 +28,7 @@ export default function TransactionsTable(props) {
 					acc.push({
 						...s,
 						img: data[cur[0]].img,
+						img_from: data[s.from].img,
 						symbol: cur[0],
 					})
 				}
@@ -103,8 +104,9 @@ TransactionsTable.propTypes = {
 }
 
 TransactionsTable.tableHeaders = Object.freeze([
-	['Coin', 'left'],
+	['From', 'left'],
+	['To', 'center'],
+	['Cost', 'center'],
 	['Amount', 'center'],
-	['Balance', 'center'],
 	['Date', 'right'],
 ])

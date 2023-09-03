@@ -3,6 +3,8 @@
 		"total": 2.25,
 		"spent": [
 			{
+				"from": "ETH",
+				"from_changes": 39.65,
 				"date": 1693675073808,
 				"changes": 25850.20,
 				"amount": 2.25

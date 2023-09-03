@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useNavigation } from 'react-router-dom'
 
-import Loading from '@/components/Loading'
 import Header from '@/components/Header'
 
 import useCoinStore from '@/stores/coins'
