@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 
 import useCoinStore from '@/stores/coins'
 
@@ -6,11 +6,14 @@ import SearchBar from '@/components/SearchBar'
 import MarketTable from '@/components/Table/MarketTable'
 import Chart from 'react-apexcharts'
 
+import Loading from '@/components/Loading'
+
 import { getRandomInt } from '@/utils'
 
 export default function Home() {
+	const [data, getData] = useCoinStore(({ data, getData }) => [data, getData])
+
 	const [input, setInput] = useState('')
-	const data = useCoinStore((state) => state.data)
 
 	/**
 	 * using use memo here so that the value of these value only update

@@ -1,6 +1,12 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import {
+	RouterProvider,
+	createBrowserRouter,
+	BrowserRouter,
+	Route,
+	Routes,
+} from 'react-router-dom'
 
-import Layout from '@/components/Layout'
+import Layout, { _Layout } from '@/components/Layout'
 import Home from '@/pages/Home'
 import Wallet from '@/pages/Wallet'
 import Transactions from '@/pages/Transactions'
@@ -25,7 +31,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'transactions',
-				element: <Transactions/>,
+				element: <Transactions />,
 			},
 			{
 				path: 'exchange',
@@ -35,16 +41,40 @@ const router = createBrowserRouter([
 				path: 'trading/:coin',
 				element: <Trading />,
 			},
-			// {
-			// 	path: 'about',
-			// 	lazy: () => import('./pages/About'),
-			// },
+			{
+				path: 'about',
+				lazy: () => import('./pages/About'),
+			},
 		],
 	},
 ])
 
 function App() {
-	return <RouterProvider router={router} fallbackElement={<Loading />} />
+	return (
+		<RouterProvider
+			router={router}
+			fallbackElement={
+				<_Layout>
+					<Loading />
+				</_Layout>
+			}
+		/>
+	)
 }
 
 export default App
+
+// export default function App() {
+// 	return (
+// 		<BrowserRouter>
+// 			<Routes>
+// 				<Route element={<Layout />}>
+// 					<Route path="/" element={<Home />} />
+// 					<Route path="/wallet" element={<Wallet />} />
+// 					<Route path="/transactions" element={<Transactions />} />
+// 					<Route path="/trading/:coin" element={<Trading />} />
+// 				</Route>
+// 			</Routes>
+// 		</BrowserRouter>
+// 	)
+// }

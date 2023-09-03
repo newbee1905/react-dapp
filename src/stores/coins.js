@@ -9,14 +9,6 @@ export default create(
 			data: {},
 			api: (apiEndPoint) => `https://api.gemini.com/v2/ticker/${apiEndPoint}`,
 			getData: async () => {
-				const changed = localStorage.getItem('coins-data-changed')
-				if (changed) {
-					if (Date.now() - changed < 60 * 60 * 1000 && Object.entries(get().data).length > 0) {
-						return set({})
-					}
-				}
-				localStorage.setItem('coins-data-changed', Date.now())
-
 				let data = {}
 				for (const [key, value] of Object.entries(get().raw)) {
 					let coinValues = await (await fetch(get().api(value.api))).json()
@@ -26,6 +18,7 @@ export default create(
 						coinValues.changes[0]
 					if (!coinValues.diff) coinValues.diff = 0
 					coinValues.diff *= 100
+					console.log(value)
 
 					data[key] = {
 						...value,

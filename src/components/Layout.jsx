@@ -1,27 +1,44 @@
-import { useEffect } from 'react'
-import { Outlet, useNavigation } from 'react-router-dom'
+import { useMemo, useEffect } from 'react'
+import { Outlet } from 'react-router-dom'
 
 import Header from '@/components/Header'
+import Loading from '@/components/Loading'
 
 import useCoinStore from '@/stores/coins'
 
 function Layout() {
-	let navigation = useNavigation()
+	const [data, getData] = useCoinStore((state) => [state.data, state.getData])
 
-	const getData = useCoinStore(state => state.getData)	
+	const changed = localStorage.getItem('coins-data-changed')
 
 	useEffect(() => {
-		getData().then();
-	}, [])
+		if (
+			Date.now() - changed >= 60 * 60 * 1000 ||
+			Object.entries(data).length === 0
+		) {
+			getData()
+			localStorage.setItem('coins-data-changed', Date.now())
+		}
+	})
 
 	return (
 		<>
-			{/* <div position="fixed" className="position-fixed flex h-screen w-screen">
-				{navigation.state !== 'idle' && <Loading />}
-			</div> */}
 			<Header />
 			<main m-l="78px" bg="gray-800" min-h="screen">
-				<Outlet />
+				{Object.entries(data).length === 0 ? <Loading /> : <Outlet />}
+			</main>
+		</>
+	)
+}
+
+export function _Layout({ children }) {
+	// let navigation = useNavigation()
+
+	return (
+		<>
+			<Header />
+			<main m-l="78px" bg="gray-800" min-h="screen">
+				{children}
 			</main>
 		</>
 	)
