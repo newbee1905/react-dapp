@@ -17,7 +17,7 @@ const routes = Object.freeze([
 	{
 		icon: 'tabler-user-circle',
 		content: 'Login',
-		link: '#',
+		link: '/login',
 	},
 	{
 		icon: 'tabler-logout-2',

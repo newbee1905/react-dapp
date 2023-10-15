@@ -1,6 +1,4 @@
-import { useState, useMemo, useEffect } from 'react'
-
-import useCoinStore from '@/stores/coins'
+import { useState, useEffect } from 'react'
 
 import SearchBar from '@/components/SearchBar'
 import MarketTable from '@/components/Table/MarketTable'

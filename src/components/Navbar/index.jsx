@@ -8,7 +8,7 @@ export default function Navbar() {
 		state.isLogon,
 		state.toggleLogon,
 	])
-	console.log(isLogon)
+
 	return (
 		<>
 			<span display="none">

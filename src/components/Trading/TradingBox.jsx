@@ -72,7 +72,7 @@ export default function TradingBox({ coin }) {
 				/>
 				<div m="y-3" text="slate-200 3xl" display="flex" justify="between">
 					<span>1 {coin.name} </span> <span> = </span>
-          <span>{coin.value_aud}</span>
+          <span>A&#36;{Math.floor(coin.values[0].value_aud * 100) / 100}</span>
 				</div>
 				<button
 					p="x-1.5 y-5.5"

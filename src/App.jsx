@@ -6,6 +6,8 @@ import Wallet from '@/pages/Wallet'
 import Transactions from '@/pages/Transactions'
 import Exchange from '@/pages/Exchange'
 import Trading from '@/pages/Trading'
+import Login from '@/pages/Login'
+import Register from '@/pages/Register'
 import Loading from '@/components/Loading'
 
 import '@/App.css'
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				element: <Home />,
+			},
+			{
+				path: 'login',
+				element: <Login />,
+			},
+			{
+				path: 'register',
+				element: <Register />,
 			},
 			{
 				path: 'wallet',
