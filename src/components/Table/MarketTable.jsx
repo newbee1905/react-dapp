@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import useCoinStore from '@/stores/coins'
@@ -15,13 +15,13 @@ import MarketTableSkeletonLoading from '@/components/Table/MarketTableSkeletonLo
  * @component
  */
 export default function MarketTable(props) {
-	const data = useCoinStore((state) => Object.entries(state.data))
-	const { input } = props
+	const { input, data } = props
 
-	let processedData = data.filter(([key, _value]) =>
-		key
+	let processedData = data.filter((coin) =>
+	  coin
+      .name
 			.toLowerCase()
-			.includes(input.replace(/:sort:[a-zA-Z0-9\-]+/g, '').toLowerCase())
+			.includes(input.toLowerCase())
 	)
 
 	let processedDataChunks = arrayChunks(processedData, 10)
@@ -59,7 +59,7 @@ export default function MarketTable(props) {
 								<MarketTableSkeletonLoading />
 							) : (
 								(processedDataChunks[chunkId] ?? []).map((coin) => (
-									<MarketTableRow key={coin[0]} coin={coin} />
+									<MarketTableRow key={coin.name} coin={coin} />
 								))
 							)}
 						</tbody>

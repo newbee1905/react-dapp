@@ -11,45 +11,52 @@ import Loading from '@/components/Loading'
 import { getRandomInt } from '@/utils'
 
 export default function Home() {
-	const [data, getData] = useCoinStore(({ data, getData }) => [data, getData])
-
+	const [data, setData] = useState([]);
 	const [input, setInput] = useState('')
+
+	const curHour = new Date().getHours()
+
+	useEffect(() => {
+		(async () => {
+			const cryptos = await fetch('http://localhost:8000/v1/crypto', { mode: 'cors' })
+      let cryptos_data = await cryptos.json();
+      for (let i = 0; i < cryptos_data.length; ++i) {
+        let crypto_data = cryptos_data[i]
+        let cur_value_index = crypto_data.values.findIndex(val => val.time === curHour)
+        cryptos_data[i].values = [...crypto_data.values.slice(cur_value_index), ...crypto_data.values.slice(0, cur_value_index)]
+      }
+      setData(cryptos_data)
+		})()
+	}, [])
 
 	/**
 	 * using use memo here so that the value of these value only update
 	 * the value of data
 	 * -> updating input will not affect this
 	 */
-	const curHour = new Date().getHours()
-	const options = useMemo(() => {
-		return {
-			chart: {
-				id: 'basic-bar',
-				foreColor: '#fff',
-			},
-			xaxis: {
-				categories: Array(24)
-					.fill()
-					.map((_, id) => ((id + curHour) % 24) + 1),
-			},
-			colors: ['#0ea5e9'],
-		}
-	}, [curHour])
+	const options = {
+    chart: {
+      id: 'basic-bar',
+      foreColor: '#fff',
+    },
+    xaxis: {
+      categories: Array(24)
+        .fill()
+        .map((_, id) => ((id + curHour) % 24) + 1),
+    },
+    colors: ['#0ea5e9'],
+  }
 
-	const dataValues = useMemo(() => Object.values(data), [data])
-	const randomData = useMemo(
-		() => dataValues[getRandomInt(dataValues.length - 1)],
-		[data]
-	)
-	const series = useMemo(
-		() => [
-			{
-				name: randomData.values.symbol.slice(0, -3),
-				data: randomData.values.changes.reverse(),
-			},
-		],
-		[randomData]
-	)
+	if (data === undefined || data.length === 0)
+		return <Loading />
+
+	const randomData = data[getRandomInt(data.length - 1)]
+	const series = [
+    {
+      name: randomData.name,
+      data: randomData.values.map(val => Math.round(val.value_aud * 100) / 100),
+    },
+  ]
 
 	return (
 		<div w="full" h="full">
@@ -65,11 +72,11 @@ export default function Home() {
 			>
 				<div w="xl:2/3 full" display="none md:block">
 					<h2 text="slate-200" m="x-4">
-						You may interest in {randomData.values.symbol.slice(0, -3)}
+						You may interest in {randomData.name}
 					</h2>
 					<Chart options={options} series={series} type="line" />
 				</div>
-				<MarketTable input={input} />
+				<MarketTable input={input} data={data} />
 			</div>
 		</div>
 	)

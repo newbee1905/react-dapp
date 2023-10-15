@@ -11,22 +11,12 @@ import TradingCoinsSelection from '@/components/Trading/TradingCoinsSelection'
  */
 export default function TradingBox({ coin }) {
 	const pages = useMemo(
-		() => [`Buy ${coin}`, `Sell ${coin}`, `Trade ${coin}`],
+		() => [`Buy ${coin.name}`, `Sell ${coin.name}`],
 		[coin]
 	)
 	const [pageId, setPageId] = useState(0)
 
-	const data = useCoinStore((state) => state.data)
-
-	const filteredData = useMemo(() => {
-		const copy = { ...data }
-		delete copy[coin]
-		return copy
-	}, [data])
-
-	const [tradingCoin, setTradingCoin] = useState(
-		filteredData[Object.keys(filteredData)[0]]
-	)
+	const curHour = new Date().getHours()
 
 	return (
 		<>
@@ -80,19 +70,9 @@ export default function TradingBox({ coin }) {
 					placeholder={pages[pageId].split(' ')[0]}
 					m="b-3"
 				/>
-				{pageId === 2 ? <TradingCoinsSelection coin={tradingCoin} setCoin={setTradingCoin} data={filteredData} /> : <></>}
 				<div m="y-3" text="slate-200 3xl" display="flex" justify="between">
-					<span>1 {coin} </span> <span> = </span>
-					{pageId === 2 ? (
-						<span>
-							{tradingCoin.name}
-							{(
-								data[coin].values.changes[0] / tradingCoin.values.changes[0]
-							).toFixed(2)}
-						</span>
-					) : (
-						<span> ${data[coin].values.changes[0]}</span>
-					)}
+					<span>1 {coin.name} </span> <span> = </span>
+          <span>{coin.value_aud}</span>
 				</div>
 				<button
 					p="x-1.5 y-5.5"

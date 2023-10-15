@@ -12,26 +12,26 @@ import { useNavigate } from 'react-router-dom'
 export default function MarketTableRow({ coin }) {
 	const navigate = useNavigate()
 	function handleClick(e) {
-		navigate(`/trading/${coin[0]}`)
+		navigate(`/trading/${coin.name}`)
 	}
 
 	return (
 		<tr onClick={handleClick} bg="hover:slate-950">
 			<MarketTableData align="right" display="flex">
-				<img src={coin[1].img} alt={coin[0]} w="[24px]" h="[24px]" />
-				<MarketTableTextCell>{coin[0]}</MarketTableTextCell>
+				<img src={coin.img} alt={coin.name} w="[24px]" h="[24px]" />
+				<MarketTableTextCell>{coin.name}</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="center">
-				<MarketTableTextCell>{coin[1].values.changes[0]}</MarketTableTextCell>
+				<MarketTableTextCell>{coin.values[0].value_aud}</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="right">
 				<MarketTableTextCell
 					textStyle={
-						(coin[1].values.diff >= 0 ? 'text-green-500' : 'text-red-500') +
+						(coin.diff >= 0 ? 'text-green-500' : 'text-red-500') +
 						' md:text-base text-xs text-medium'
 					}
 				>
-					{coin[1].values.diff.toFixed(2)}%
+					{coin.diff.toFixed(2)}%
 				</MarketTableTextCell>
 			</MarketTableData>
 		</tr>
