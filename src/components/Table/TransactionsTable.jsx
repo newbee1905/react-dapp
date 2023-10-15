@@ -89,6 +89,7 @@ export default function TransactionsTable(props) {
 						processedDataChunks={processedDataChunks}
 						chunkId={chunkId}
 						setChunkId={setChunkId}
+            step={5}
 					/>
 				</div>
 			</div>
