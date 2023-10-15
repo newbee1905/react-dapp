@@ -17,7 +17,7 @@ export default create(
 						(coinValues.changes[0] - coinValues.changes[23]) /
 						coinValues.changes[0]
 					if (!coinValues.diff) coinValues.diff = 0
-					coinValues.diff *= 100
+					coinValues.diff *= 100``
 
 					data[key] = {
 						...value,

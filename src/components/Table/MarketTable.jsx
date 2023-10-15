@@ -18,9 +18,12 @@ export default function MarketTable(props) {
 	const data = useCoinStore((state) => Object.entries(state.data))
 	const { input } = props
 
-	let processedData = data.filter(([key, value]) =>
-		key.toLowerCase().includes(input.toLowerCase())
+	let processedData = data.filter(([key, _value]) =>
+		key
+			.toLowerCase()
+			.includes(input.replace(/:sort:[a-zA-Z0-9\-]+/g, '').toLowerCase())
 	)
+
 	let processedDataChunks = arrayChunks(processedData, 10)
 	const [chunkId, setChunkId] = useState(0)
 
@@ -56,10 +59,7 @@ export default function MarketTable(props) {
 								<MarketTableSkeletonLoading />
 							) : (
 								(processedDataChunks[chunkId] ?? []).map((coin) => (
-									<MarketTableRow
-										key={coin[0]}
-										coin={coin}
-									/>
+									<MarketTableRow key={coin[0]} coin={coin} />
 								))
 							)}
 						</tbody>

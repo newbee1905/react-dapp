@@ -10,10 +10,10 @@ import PropTypes from 'prop-types'
 
 /**
  * Navbar's items creating NavLink linking to pages
- * 
+ *
  * @component
  */
-export default function NavItem({ route }) {
+export default function NavItem({ route, ...props }) {
 	const open = useContext(HeaderContext)
 	return (
 		<li
@@ -24,9 +24,10 @@ export default function NavItem({ route }) {
 			rounded="xl"
 			transition="all"
 			duration="200"
-			className="group"
 			bg="hover:slate-200"
 			h="50px"
+			{...props}
+			className={'group ' + props.className}
 		>
 			<NavLink
 				to={route.link}
@@ -60,8 +61,8 @@ NavItem.propTypes = {
 	/**
 	 * Route's data
 	 * - link
-	 * - icon 
+	 * - icon
 	 * - name/content
 	 */
-	route: PropTypes.object.isRequired
+	route: PropTypes.object.isRequired,
 }

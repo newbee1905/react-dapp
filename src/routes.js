@@ -14,6 +14,16 @@ const routes = Object.freeze([
 		content: 'Transactions',
 		link: '/transactions',
 	},
+	{
+		icon: 'tabler-user-circle',
+		content: 'Login',
+		link: '#',
+	},
+	{
+		icon: 'tabler-logout-2',
+		content: 'Logout',
+		link: '#',
+	},
 ])
 
 export default routes
