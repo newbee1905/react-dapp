@@ -4,10 +4,7 @@ import routes from '@/routes'
 import useLoginStore from '@/stores/login'
 
 export default function Navbar() {
-	const [isLogon, toggleLogon] = useLoginStore((state) => [
-		state.isLogon,
-		state.toggleLogon,
-	])
+	const isLogon = useLoginStore((state) => state.isLogon)
 
 	return (
 		<>
@@ -25,7 +22,6 @@ export default function Navbar() {
 					<NavItem
 						key={route.content}
 						route={route}
-						onClick={toggleLogon}
 						className={
 							index == routes.length - 1 - isLogon
 								? 'display-none '

@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import Layout from '@/components/Layout'
+import ProtectedLayout from '@/components/ProtectedLayout'
 import Home from '@/pages/Home'
 import Wallet from '@/pages/Wallet'
 import Transactions from '@/pages/Transactions'
@@ -30,20 +31,22 @@ const router = createBrowserRouter([
 				element: <Register />,
 			},
 			{
-				path: 'wallet',
-				element: <Wallet />,
-			},
-			{
-				path: 'transactions',
-				element: <Transactions />,
-			},
-			{
-				path: 'trading/:coin',
-				element: <Trading />,
-			},
-			{
-				path: 'about',
-				lazy: () => import('./pages/About'),
+        path: '/',
+				element: <ProtectedLayout />,
+        children: [
+          {
+            path: 'wallet',
+            element: <Wallet />,
+          },
+          {
+            path: 'transactions',
+            element: <Transactions />,
+          },
+          {
+            path: 'trading/:coin',
+            element: <Trading />,
+          },
+        ]
 			},
 		],
 	},

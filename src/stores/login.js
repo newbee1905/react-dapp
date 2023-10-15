@@ -8,4 +8,10 @@ export default create((set, get) => ({
 				isLogon: !isLogon,
 			}
 		}),
+	setLogon: (value) =>
+		set(({ isLogon }) => {
+			return {
+				isLogon: value,
+			}
+		}),
 }))
