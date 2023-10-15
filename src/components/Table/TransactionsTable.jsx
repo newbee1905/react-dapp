@@ -9,38 +9,15 @@ import MarketTableFooter from '@/components/Table/MarketTableFooter'
 import TransitionsTableRow from '@/components/Table/TransactionsTableRow'
 import WalletTableSkeletonLoading from '@/components/Table/WalletTableSkeletonLoading'
 
-import WalletData from '@/wallet.json'
-
 /**
  * Pre-styled table for the market data
  *
  * @component
  */
 export default function TransactionsTable(props) {
-	const { input } = props
+	const { input, transactions } = props
 
-	const data = useCoinStore((state) => state.data)
-
-	const walletData = useMemo(
-		() =>
-			Object.entries(WalletData).reduce((acc, cur) => {
-				for (let s of cur[1].spent) {
-					acc.push({
-						...s,
-						img: data[cur[0]].img,
-						img_from: data[s.from].img,
-						symbol: cur[0],
-					})
-				}
-				return acc
-			}, []),
-		[data]
-	)
-
-	const processedData = walletData.filter((val) =>
-		val.symbol.toLowerCase().includes(input.toLowerCase())
-	)
-	let processedDataChunks = arrayChunks(processedData, 10)
+	let processedDataChunks = arrayChunks(transactions, 10)
 	const [chunkId, setChunkId] = useState(0)
 
 	return (
@@ -71,26 +48,15 @@ export default function TransactionsTable(props) {
 							</tr>
 						</thead>
 						<tbody>
-							{data.length === 0 ? (
-								<WalletTableSkeletonLoading />
-							) : (
-								(processedDataChunks[chunkId] ?? []).map((coin) => (
+              {(processedDataChunks[chunkId] ?? []).map((transaction) => (
 									<TransitionsTableRow
-										key={coin.symbol}
-										coin={coin}
-										loading={data.length === 0}
+										transaction={transaction}
+										loading={transactions.length === 0}
 									/>
 								))
-							)}
+              }
 						</tbody>
 					</table>
-					<MarketTableFooter
-						processedData={processedData}
-						processedDataChunks={processedDataChunks}
-						chunkId={chunkId}
-						setChunkId={setChunkId}
-            step={5}
-					/>
 				</div>
 			</div>
 		</div>
@@ -105,9 +71,8 @@ TransactionsTable.propTypes = {
 }
 
 TransactionsTable.tableHeaders = Object.freeze([
-	['From', 'left'],
+	['Type', 'left'],
+	['From', 'center'],
 	['To', 'center'],
-	['Cost', 'center'],
-	['Amount', 'center'],
-	['Date', 'right'],
+	['Total', 'right'],
 ])

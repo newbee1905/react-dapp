@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
 
+import useLoginStore from '@/stores/login'
+
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+	const setLogon = useLoginStore((state) => state.setLogon)
 
 	const navigate = useNavigate()
 
@@ -45,9 +49,11 @@ export default function Login() {
 
                 if (user.hasOwnProperty('detail')) {
                   toast.error(user.detail)
+                  setLogon(false)
                   return
                 }
                 
+                setLogon(true)
                 toast.success("Successful Logging in.")
                 navigate('/', 2000)
               }}

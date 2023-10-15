@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom'
 export default function MarketTableRow({ coin }) {
 	const navigate = useNavigate()
 	function handleClick(e) {
-		navigate(`/trading/${coin.name}`)
+		navigate(`/protected/trading/${coin.name}`)
 	}
 
 	return (

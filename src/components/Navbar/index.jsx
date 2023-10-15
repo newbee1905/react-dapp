@@ -2,9 +2,14 @@ import NavItem from '@/components/Navbar/NavItem'
 import routes from '@/routes'
 
 import useLoginStore from '@/stores/login'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 export default function Navbar() {
-	const isLogon = useLoginStore((state) => state.isLogon)
+	const [isLogon, setLogon] = useLoginStore((state) => [
+		state.isLogon,
+		state.setLogon,
+	])
 
 	return (
 		<>
@@ -29,6 +34,11 @@ export default function Navbar() {
 								? 'mt-auto translate-y--80px'
 								: ''
 						}
+            onClick={index === routes.length - 1 ? async () => {
+              await fetch('http://localhost:8000/v1/users/logout')
+              toast.info("Logged out!")
+              setLogon(false)
+            } : () => {}}
 					/>
 				))}
 			</ul>

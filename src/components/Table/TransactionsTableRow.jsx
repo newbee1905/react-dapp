@@ -7,39 +7,20 @@ import MarketTableTextCell from '@/components/Table/MarketTableTextCell'
  *
  * @component
  */
-export default function MarketTableRow({ coin }) {
+export default function MarketTableRow({ transaction }) {
 	return (
 		<tr bg="hover:slate-950">
 			<MarketTableData align="left">
-				<img
-					src={coin.img_from}
-					alt={coin.from}
-					w="[24px]"
-					h="[24px]"
-					translate="y-1.5"
-				/>
-				<MarketTableTextCell>{coin.from}</MarketTableTextCell>
+				<MarketTableTextCell>{transaction.type}</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="center">
-				<img
-					src={coin.img}
-					alt={coin.symbol}
-					w="[24px]"
-					h="[24px]"
-					translate="y-1.5"
-				/>
-				<MarketTableTextCell>{coin.symbol}</MarketTableTextCell>
+				<MarketTableTextCell>eth</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="center">
-				<MarketTableTextCell>{coin.from_changes}</MarketTableTextCell>
-			</MarketTableData>
-			<MarketTableData align="center">
-				<MarketTableTextCell>{coin.amount}</MarketTableTextCell>
+				<MarketTableTextCell>{transaction.crypto}</MarketTableTextCell>
 			</MarketTableData>
 			<MarketTableData align="right">
-				<MarketTableTextCell>
-					{new Date(coin.date).toJSON().slice(0, 10)}
-				</MarketTableTextCell>
+				<MarketTableTextCell>{transaction.total / Math.pow(10, 18)}</MarketTableTextCell>
 			</MarketTableData>
 		</tr>
 	)
@@ -49,5 +30,5 @@ MarketTableRow.propTypes = {
 	/**
 	 * Coin's object data
 	 */
-	coin: PropTypes.array.isRequired,
+	transaction: PropTypes.array.isRequired,
 }

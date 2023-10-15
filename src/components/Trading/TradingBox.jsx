@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { useState, useMemo } from 'react'
+import { toast } from 'react-toastify';
 
 import useCoinStore from '@/stores/coins'
 import TradingCoinsSelection from '@/components/Trading/TradingCoinsSelection'
@@ -15,6 +16,7 @@ export default function TradingBox({ coin }) {
 		[coin]
 	)
 	const [pageId, setPageId] = useState(0)
+  const [amount, setAmount] = useState(0)
 
 	const curHour = new Date().getHours()
 
@@ -68,6 +70,8 @@ export default function TradingBox({ coin }) {
 					outline="transparent"
 					border="2 slate-200 solid"
 					placeholder={pages[pageId].split(' ')[0]}
+          value={amount}
+          onChange={event => setAmount(event.target.value)}
 					m="b-3"
 				/>
 				<div m="y-3" text="slate-200 3xl" display="flex" justify="between">
@@ -84,6 +88,28 @@ export default function TradingBox({ coin }) {
 					text="slate-900 lg"
 					border="0"
 					className="upperclase"
+          onClick={async () => {
+            const req = await fetch(`http://localhost:8000/v1/dapp/${pageId ? "sell" : "buy"}`, {
+              method: "POST",
+              credentials: "include",
+              mode: "cors", 
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                crypto: coin.name,
+                amount: Number(amount),
+              })
+            })
+            
+            const res = await req.json()
+            if (res.hasOwnProperty('detail')) {
+              toast.error(res.detail)
+              return
+            }
+
+            toast.success("Succeed")
+          }}
 				>
 					{pages[pageId].split(' ')[0]}
 				</button>

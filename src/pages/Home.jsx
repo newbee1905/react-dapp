@@ -16,7 +16,10 @@ export default function Home() {
 
 	useEffect(() => {
 		(async () => {
-			const cryptos = await fetch('http://localhost:8000/v1/crypto', { mode: 'cors' })
+			const cryptos = await fetch('http://localhost:8000/v1/crypto', { 
+        credentials: "include",
+        mode: "cors", 
+      })
       let cryptos_data = await cryptos.json();
       for (let i = 0; i < cryptos_data.length; ++i) {
         let crypto_data = cryptos_data[i]
@@ -52,7 +55,7 @@ export default function Home() {
 	const series = [
     {
       name: randomData.name,
-      data: randomData.values.map(val => Math.round(val.value_aud * 100) / 100),
+      data: randomData.values.map(val => Math.round(val.value_aud * 100) / 100).reverse(),
     },
   ]
 
